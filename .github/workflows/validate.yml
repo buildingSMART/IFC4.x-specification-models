@@ -35,7 +35,7 @@ jobs:
         set +e
         while IFS= read -r file; do
           printf "Validating $file ..."
-          python ./step-file-parser/main.py "$file" > validate.log 2>&1
+          python -m step-file-parser "$file" > validate.log 2>&1
           exit_code=$?
           if [ $exit_code -eq 0 ]; then
             ((valid_count++))
